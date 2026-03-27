@@ -1,0 +1,260 @@
+:root {
+    --bg-success: #198754;
+    --bg-warning: #fd7e14;
+    --bg-danger: #dc3545;
+    --bg-default: #000000;
+}
+
+/**************************/
+/*        Fuentes         */
+/**************************/
+/*Tangerine*/
+@font-face {
+    font-family: 'Tangerine';
+    src: url('fonts/Tangerine/Tangerine-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/*Tangerine bold*/
+@font-face {
+    font-family: 'Tangerine';
+    src: url('fonts/Tangerine/Tangerine-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+/*Buda*/
+@font-face {
+    font-family: 'Buda';
+    src: url('fonts/Buda/Buda-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/*Patrick*/
+@font-face {
+    font-family: 'Patrick Hand SC';
+    src: url('fonts/Patrick_Hand_SC/PatrickHandSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/*Neonderthaw*/
+@font-face {
+    font-family: 'Neonderthaw';
+    src: url('fonts/Neonderthaw/Neonderthaw-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**************************/
+/* Tamaño de contenedores */
+/**************************/
+.fullscreen {
+    height: 100dvh;
+    width: 100%;
+}
+
+/**************************/
+/*      Alineaciones      */
+/**************************/
+.total-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.align-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/**************************/
+/*   Botones & Forms      */
+/**************************/
+form {
+    margin: 0;
+}
+
+button {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+
+    padding: 5px 20px;
+
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.btn-execute {
+    background: rgb(160, 38, 202, 0.8);
+    color: #ffffff;
+}.btn-execute:hover {
+    background: rgb(133, 36, 165);
+}
+
+.btn-accept {
+    background: rgb(194, 194, 194, 0.8);
+}.btn-accept:hover {
+    background: rgb(194, 194, 194, 1);
+}
+
+label {
+    font-family: 'Buda';
+    font-size: 1.2rem;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+
+    transition: 0.2s;
+
+}input:focus {
+    outline: none;
+}
+
+/**************************/
+/*      Visibilidad       */
+/**************************/
+.object-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.object-invisible {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/**************************/
+/*  Preloaders & Loaders  */
+/**************************/
+/* From Uiverse.io by SchawnnahJ */ 
+.container-preloader {
+    background: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+
+.loader:before {
+ animation: before8 2s infinite;
+}
+
+.loader:after {
+ animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+
+
+
+/**************************/
+/*         Alerta         */
+/**************************/
+.system-alert {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    background: rgb(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.content-alert {
+    height: 200px;
+    width: 500px;
+
+    display: grid;
+    grid-template-rows: 35px 1fr;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+.head-alert {
+    border-radius: 10px 10px 0px 0px;
+    background: #707070;
+    color: #ffffff;
+
+    font-family: 'Patrick Hand SC';
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.body-alert {
+    padding: 10px;
+}

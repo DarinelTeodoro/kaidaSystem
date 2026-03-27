@@ -1,0 +1,40 @@
+.container-login-main {
+    background: rgb(0, 0, 0, 0.5) url('img/background/mesas.webp') center center / cover no-repeat;
+    background-blend-mode: darken;
+
+    overflow-y: auto;
+}
+
+.title-login {
+    font-family: 'Neonderthaw';
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #ff00de,
+        0 0 10px #ff00de,
+        0 0 20px #ff00de,
+        0 0 40px #11adbb,
+        0 0 80px #11adbb;
+}
+
+.container-field {
+    width: 100%;
+}
+
+label {
+    color: #ffffff;
+}
+
+.field-login {
+    background: rgb(255, 255, 255, 0.8);
+}.field-login:focus {
+    background: rgb(255, 255, 255, 1);
+}
+
+
+@media (height < 330px) {
+    .container-login-main {
+        display: block;
+        padding: 10px;
+    }
+}

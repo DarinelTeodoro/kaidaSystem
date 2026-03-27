@@ -1,0 +1,33 @@
+body {
+    background: rgb(255, 255, 255, 0.5) url('../img/background/mostrador.webp') fixed no-repeat center center;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.navbar {
+    height: 70px;
+    padding: 0px 5px 0px 15px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.btn-info-user {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0px 10px;
+
+    background: #ffffff;
+    border-radius: 0px;
+}
+
+.photo-perfil {
+    height: 55px;
+    width: 55px;
+
+    border: 2px solid #000000;
+    border-radius: 27.5px;
+    background-blend-mode: darken;
+}
