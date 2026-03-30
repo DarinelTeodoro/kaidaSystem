@@ -5,6 +5,16 @@
     --bg-default: #000000;
 }
 
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
 /**************************/
 /*        Fuentes         */
 /**************************/
@@ -73,6 +83,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 /**************************/
 /*   Botones & Forms      */
 /**************************/
@@ -91,6 +102,25 @@ button {
     transition: 0.2s;
 }
 
+.btn-add:disabled,
+.btn-edit:disabled,
+.btn-setting:disabled,
+.btn-delete:disabled,
+.btn-execute:disabled {
+    background: rgb(207, 204, 204);
+}
+.btn-add:disabled:hover,
+.btn-edit:disabled:hover,
+.btn-setting:disabled:hover,
+.btn-delete:disabled:hover,
+.btn-execute:disabled:hover {
+    background: rgb(207, 204, 204);
+}
+
+.btn-close {
+    --bs-btn-close-focus-shadow: none;
+}
+
 .btn-execute {
     background: rgb(160, 38, 202, 0.8);
     color: #ffffff;
@@ -104,6 +134,43 @@ button {
     background: rgb(194, 194, 194, 1);
 }
 
+.btn-add {
+    background: rgb(25, 160, 97, 0.8);
+    color: #ffffff;
+}.btn-add:hover {
+    background: rgb(25, 160, 97, 1);
+}
+
+.btn-edit {
+    padding: 5px 10px;
+    background: rgb(255, 193, 7, 0.7);
+    color: #000000;
+
+    border-radius: 5px;
+}.btn-edit:hover {
+    background: rgb(255, 193, 7, 1);
+}
+
+.btn-setting {
+    padding: 5px 10px;
+    background: rgb(214, 214, 214);
+    color: #000000;
+
+    border-radius: 5px;
+}.btn-setting:hover {
+    background: rgb(171, 170, 170);
+}
+
+.btn-delete {
+    padding: 5px 10px;
+    background: rgb(220, 53, 69, 0.7);
+    color: #ffffff;
+
+    border-radius: 5px;
+}.btn-delete:hover {
+    background: rgb(220, 53, 69, 1);
+}
+
 label {
     font-family: 'Buda';
     font-size: 1.2rem;
@@ -115,11 +182,42 @@ input {
     border: none;
 
     transition: 0.2s;
-
 }input:focus {
     outline: none;
 }
 
+input[type='file'] {
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.field-modal,
+textarea {
+    width: 100%;
+
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0, 0.3);
+}
+
+.field-modal:focus,
+textarea:focus {
+    outline: none;
+    border: 1.5px solid rgb(0, 0, 0, 1);
+}
+
+textarea {
+    padding: 5px 10px;
+    resize: none;
+}
+
+select {
+    padding: 5px 10px;
+}
 /**************************/
 /*      Visibilidad       */
 /**************************/
@@ -219,8 +317,62 @@ input {
  left: calc(50% - 1.25em);
 }
 
+/* From Uiverse.io by satyamchaudharydev */
+.loading {
+    --speed-of-animation: 0.9s;
+    --gap: 6px;
+    --first-color: #4c86f9;
+    --second-color: #49a84c;
+    --third-color: #f6bb02;
+    --fourth-color: #f6bb02;
+    --fifth-color: #2196f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    gap: 6px;
+    height: 100px;
+}
 
+.loading span {
+    width: 4px;
+    height: 50px;
+    background: var(--first-color);
+    animation: scale var(--speed-of-animation) ease-in-out infinite;
+}
 
+.loading span:nth-child(2) {
+    background: var(--second-color);
+    animation-delay: -0.8s;
+}
+
+.loading span:nth-child(3) {
+    background: var(--third-color);
+    animation-delay: -0.7s;
+}
+
+.loading span:nth-child(4) {
+    background: var(--fourth-color);
+    animation-delay: -0.6s;
+}
+
+.loading span:nth-child(5) {
+    background: var(--fifth-color);
+    animation-delay: -0.5s;
+}
+
+@keyframes scale {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.05);
+    }
+
+    20% {
+        transform: scaleY(1);
+    }
+}
 /**************************/
 /*         Alerta         */
 /**************************/
@@ -243,6 +395,7 @@ input {
     border-radius: 10px;
 
     background: #ffffff;
+    transition: 0.2s;
 }
 
 .head-alert {
@@ -253,8 +406,116 @@ input {
     font-family: 'Patrick Hand SC';
     font-weight: bold;
     font-size: 1.2rem;
+
+    transition: 0.2s;
 }
 
 .body-alert {
     padding: 10px;
+}
+
+#text-alert {
+    font-family: 'Buda';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@media (width < 550px) {
+    .content-alert {
+        width: 100%;
+        border-radius: 0px;
+    }.head-alert {
+        border-radius: 0px;
+    }
+}
+
+@media (height < 250px) {
+    .content-alert {
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }.head-alert {
+        border-radius: 0px;
+    }
+}
+
+/**************************/
+/*          Modal         */
+/**************************/
+.fade-modal-system {
+    background: rgb(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-system-sm {
+    height: 600px;
+    width: 500px;
+
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+    background: #ffffff;
+    transition: 0.2s;
+}
+
+.modal-system-xl {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 50px 1fr;
+
+    background: #ffffff;
+    transition: 0.2s;
+}
+
+@media (width < 550px) {
+    .modal-system-sm {
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+@media (height < 650px) {
+    .modal-system-sm {
+        height: 100%;
+        box-shadow: none;
+    }
+}
+
+.head-modal {
+    padding: 0px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+
+    font-family: 'Patrick Hand SC';
+    font-size: 1.3rem;
+
+    border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+}
+
+.body-modal {
+    height: 100%;
+    padding: 10px;
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+/**************************/
+/*          Line          */
+/**************************/
+.line {
+    width: 100%;
+    height: 2px;
+    margin: 10px 0px;
+
+    background: rgb(220, 53, 69, 0.4);
 }

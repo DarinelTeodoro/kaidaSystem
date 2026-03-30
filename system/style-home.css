@@ -31,3 +31,50 @@ body {
     border-radius: 27.5px;
     background-blend-mode: darken;
 }
+
+.offcanvas-header {
+    padding: 8px 16px 8px;
+    border-bottom: 1px solid #000000;
+}
+
+.info-photo-perfil {
+    height: 50px;
+    width: 50px;
+
+    border: 2px solid #000000;
+    border-radius: 40px;
+}.name-session {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    margin-left: 6px;
+}
+
+.btn-logout {
+    width: 100%;
+    background: #e6e6e6;
+
+    border-top: 1px solid #000000;
+    border-radius: 0px;
+
+    transition: 0.2s;
+}.btn-logout:hover {
+    background: #d5d5d5;
+}
+
+.option-menu {
+    width: 100%;
+    padding: 5px 20px;
+    margin-bottom: 5px;
+
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    color: #000000;
+
+    transition: 0.2s;
+}.option-menu:hover {
+    background: rgba(0, 0, 0, 0.2);
+}

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('librerias.php');
+include('libraries.php');
 
 if (!empty($_SESSION['USERLOGED'])) {
   echo '<script>window.location.href = "system/home.php";</script>';
@@ -19,11 +19,6 @@ if (!empty($_SESSION['USERLOGED'])) {
 </head>
 
 <body id="html-body">
-  <!--Pre-loader-->
-  <div class="container-preloader fixed-top fullscreen object-visible" id="view-preloader">
-    <div class="loader"></div>
-  </div>
-
 
   <!--Contenedor Principal-->
   <div class="container-login-main fullscreen total-center">
@@ -52,16 +47,22 @@ if (!empty($_SESSION['USERLOGED'])) {
   <!--Alerta-->
   <div class="system-alert fixed-top fullscreen total-center" id="system-alert">
     <div class="content-alert">
-      <div class="head-alert total-center text-uppercase">
+      <div class="head-alert total-center text-uppercase" id="head-alert">
         <span id="title-alert">TEXT ALERT</span>
       </div>
       <div class="body-alert total-center">
-        <div class="mb-2"><span id="text-alert">Message Alert</span></div>
+        <div class="mb-3"><span id="text-alert">Message Alert</span></div>
         <div id="container-btn-acept">
           <button type="button" class="btn-accept" onclick="hide_alert()">Aceptar</button>
         </div>
       </div>
     </div>
+  </div>
+
+
+  <!--Pre-loader-->
+  <div class="container-preloader fixed-top fullscreen object-visible" id="view-preloader">
+    <div class="loader"></div>
   </div>
 </body>
 

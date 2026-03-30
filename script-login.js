@@ -1,8 +1,16 @@
-$('#form-login').submit(function (event) {
-    event.preventDefault();
+function disable_form() {
     document.getElementById("view-preloader").classList.add('object-visible');
     document.getElementById('submit-login-form').disabled = true;
-    
+}
+function enable_form() {
+    document.getElementById("view-preloader").classList.remove('object-visible');
+    document.getElementById('submit-login-form').disabled = false;
+}
+
+$('#form-login').submit(function (event) {
+    event.preventDefault();
+    disable_form();
+
     var formData = new FormData(this);
 
     $.ajax({
@@ -14,17 +22,15 @@ $('#form-login').submit(function (event) {
         dataType: 'json',
         success: function (response) {
             if (response.access === 'ACCESSGRANTED') {
-                $('#key-user').val('');
-                $('#key-password').val('');
+                document.getElementById('form-login').reset();
                 window.location.href = response.path;
             } else {
-                document.getElementById("view-preloader").classList.remove('object-visible');
-                document.getElementById('submit-login-form').disabled = false;
+                enable_form();
                 show_alert(response.bg, response.access, response.message, true);
             }
         },
         error: function (xhr, status, error) {
-            document.getElementById('submit-login-form').disabled = false;
+            enable_form();
             show_alert('danger', 'Error', 'Error de conexión: ' + error, true);
         }
     });

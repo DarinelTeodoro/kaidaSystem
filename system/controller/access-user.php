@@ -18,8 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION['USERLOGED'] = $data_user['user'];
 
                 $response['access'] = 'ACCESSGRANTED';
-                $response['path'] = 'system/main.php';
-
+                $response['path'] = 'system/home.php';
             } else {
                 $response['bg'] = 'danger';
                 $response['access'] = 'Acceso Denegado';
