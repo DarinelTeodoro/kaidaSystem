@@ -35,7 +35,8 @@ if (empty($_SESSION['USERLOGED'])) {
 
             <div align="justify"><label for="combo-price">Precio</label></div>
             <div>
-                <input type="number" name="combo-price" id="combo-price" class="field-modal mb-3" step="0.01" placeholder="$0.00" required>
+                <input type="number" name="combo-price" id="combo-price" class="field-modal mb-3" step="0.01"
+                    placeholder="$0.00" required>
             </div>
 
             <input type="hidden" name="menu-request" value="add-combo">
@@ -73,6 +74,46 @@ if (empty($_SESSION['USERLOGED'])) {
 
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="fade-modal-system fullscreen total-center fixed-top" id="modal-add-sections">
+    <div class="modal-system-xl">
+        <div class="head-modal">
+            <span>Personalizar Combo</span>
+            <button type="button" class="btn btn-close" onclick="close_add_section()"></button>
+        </div>
+        <form method="post" action="" class="body-modal" id="form-section-combo">
+            <div align="justify"><label for="section-name">Nombre de la Sección</label></div>
+            <div class="mb-2">
+                <input type="text" name="section-name" id="section-name" class="field-modal" required>
+            </div>
+
+            <div align="justify"><label for="section-method">Interactuación con la Sección</label></div>
+            <div class="mb-2">
+                <select name="section-method" id="section-method" class="field-modal">
+                    <option value="1">Productos Siempre Incluidos en el Combo</option>
+                    <option value="2">Solo se puede seleccionar uno de los productos</option>
+                    <option value="3">Se pueden escoger mas de uno de los productos</option>
+                </select>
+            </div>
+
+            <div align="justify"><label for="section-instruction">Instrucción</label></div>
+            <textarea type="text" name="section-instruction" id="section-instruction" class="mb-2" rows="3"
+                placeholder="Instruccion sobre la seleccion de productos de la sección. Sino se ingresa una instrucción se pondra una predeterminada."></textarea>
+
+            <div class="mb-2 d-flex justify-content-end">
+                <input type="search" class="field-modal" name="combos-search-product" id="combos-search-product"
+                    placeholder="Buscar Producto" style="width: 300px;">
+            </div>
+
+            <div class="mb-3" id="products-for-combo"></div>
+
+            <input type="hidden" name="menu-request" value="add-combo-section">
+            <div class="total-center"><button type="submit" class="btn-execute" id="submit-add-section">Agregar
+                    Sección</button>
+        </form>
     </div>
 </div>
 

@@ -15,6 +15,71 @@
     margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.3rem;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+}
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+    font-size: 1rem;
+    color: var(--bs-accordion-btn-color);
+    text-align: left;
+    background-color: var(--bs-accordion-btn-bg);
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: var(--bs-accordion-transition);
+}
+
+
+.accordion {
+    --bs-accordion-border-width: 0;
+    --bs-accordion-border-radius: 0px;
+    --bs-accordion-active-bg: #000000;
+    --bs-accordion-active-color: #ffffff;
+    --bs-accordion-btn-focus-box-shadow: none;
+    /*--bs-accordion-btn-active-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m2 5 6 6 6-6'/%3e%3c/svg%3e) !important;*/
+}
+
+.accordion-item {
+    background-color: transparent;
+    border: none;
+}
+
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.3rem;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+}
+
+.accordion-item:last-of-type>.accordion-header .accordion-button.collapsed {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.accordion-item:first-of-type>.accordion-header .accordion-button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 /**************************/
 /*        Fuentes         */
 /**************************/
@@ -82,6 +147,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 /**************************/
@@ -217,6 +283,19 @@ textarea {
 
 select {
     padding: 5px 10px;
+}
+
+.label-photo {
+    height: 80px;
+    width: 80px;
+
+    border: 2px solid rgb(0, 0, 0, 0.3);
+    border-radius: 40px;
+
+    color: #ffffff;
+    background-blend-mode: darken;
+}.label-photo i {
+    font-size: 2.5rem;
 }
 /**************************/
 /*      Visibilidad       */

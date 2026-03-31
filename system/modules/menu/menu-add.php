@@ -227,6 +227,7 @@ if ($_POST['menu-request'] == 'add-product') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Producto Agregado';
         $response['bg'] = 'success';
+        $response['idcat'] = $category;
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción
