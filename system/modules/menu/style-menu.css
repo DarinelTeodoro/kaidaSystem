@@ -178,3 +178,25 @@ body {
 
     font-size: 1rem;
 }
+
+.card-product {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+}.imagen-product {
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+
+/****************************/
+/*     SECCION VARIANTS     */
+/****************************/
+.card-variant {
+    padding: 10px;
+    margin-bottom: 5px;
+    
+    background: #ffffff;
+    border-radius: 10px;
+}

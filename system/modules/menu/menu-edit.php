@@ -88,7 +88,7 @@ if ($_POST['menu-request'] == 'edit-product') {
     // Iniciar transacción
     $conexion = new Conexion();
     $conexion->beginTransaction();
-    $directorio_destino = "files/";
+    $directorio_destino = "products/files/";
 
     try {
         $exist = query_product($_POST['edit-product-id']);
@@ -170,6 +170,7 @@ if ($_POST['menu-request'] == 'edit-product') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Producto Actualizado';
         $response['bg'] = 'success';
+        $response['idcat'] = $categoria;
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción
@@ -193,6 +194,7 @@ if ($_POST['menu-request'] == 'edit-variant') {
         $id = $_POST['edit-variant-id'];
         $name = $_POST['edit-variant-name'];
         $price = $_POST['edit-variant-price'];
+        $data_variant = query_variant($id);
 
         $update = $conexion->prepare('UPDATE menu_variantes SET variante =:variant, precio_agregado = :price WHERE id = :id');
         $update->bindParam(':variant', $name);
@@ -207,6 +209,7 @@ if ($_POST['menu-request'] == 'edit-variant') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Variante Actualizado';
         $response['bg'] = 'success';
+        $response['idprod'] = $data_variant['id_producto'];
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción

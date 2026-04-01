@@ -46,9 +46,8 @@ if ($list_categorias) {
                         ?>
 
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 p-1">
-                            <div class="card-system">
-                                <div
-                                    style="background: rgb(0, 0, 0, 0.1) url('../menu/products/files/') center center / cover no-repeat;">
+                            <div class="card-system card-product">
+                                <div class="imagen-product" style="background: rgb(0, 0, 0, 0.1) url('../menu/products/files/<?= $producto['imagen'] ?>') center center / cover no-repeat;">
                                 </div>
                                 <div class="container-rows">
                                     <div class="lh-1">
@@ -95,72 +94,3 @@ if (empty($group_productos)) {
     echo '<div class="container-not-charge total-center"><i class="fi fi-tr-risk-alt"></i><span class="text-not-charge">No hay Productos Registrados</span></div>';
 }
 ?>
-
-
-
-<script>
-    //Abrir editar producto
-    document.querySelectorAll('.edit-product').forEach(button => {
-        button.addEventListener('click', function () {
-            let product = this.dataset.product;
-            disabled_botones();
-            document.getElementById('modal-edit-product')?.classList.add('object-visible');
-            document.getElementById('html-body').style.overflow = 'hidden';
-
-            $("#form-edit-product").html('<div align="center">Cargando...</div>');
-
-            $.ajax({
-                url: 'modules/menu/menu-productos-info.php',
-                type: 'POST',
-                data: { id_product: product },
-                dataType: 'html',
-                success: function (response) {
-                    setTimeout(() => {
-                        $("#form-edit-product").html(response);
-                    }, 200);
-                },
-                error: function (xhr, status, error) {
-                    show_alert('danger', 'Error al cargar los datos', error, true);
-                }
-            });
-        });
-    });
-
-    document.addEventListener('click', e => {
-        if (e.target.id === 'close-modal-edit-product') {
-            enabled_botones();
-            document.getElementById('modal-edit-product')?.classList.remove('object-visible');
-            document.getElementById('html-body').style.overflow = 'auto';
-        }
-    });
-
-
-    //Eliminar producto
-    document.querySelectorAll('.delete-product').forEach(button => {
-        button.addEventListener('click', function () {
-            let product = this.dataset.product;
-            disabled_botones();
-
-            if (confirm('¿Deseas eliminar el producto?')) {
-                $.ajax({
-                    url: 'modules/menu/menu-delete.php',
-                    type: 'POST',
-                    data: { menu_request: 'delete-product', id_product: product },
-                    dataType: 'json',
-                    success: function (response) {
-                        if (response.status === 200) {
-                            enabled_botones();
-                            show_alert(response.bg, response.alerta, response.message, true);
-                            recargar_lista_productos();
-                        } else {
-                            enabled_botones();
-                            show_alert(response.bg, response.alerta, response.message, true);
-                        }
-                    }
-                });
-            } else {
-                enabled_botones();
-            }
-        });
-    });
-</script>

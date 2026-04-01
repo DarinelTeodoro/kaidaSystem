@@ -15,6 +15,9 @@ if (empty($_SESSION['USERLOGED'])) {
 </div>
 
 
+<div class="content-list" id="content-list"></div>
+
+
 <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-add-product">
     <div class="modal-system-sm">
         <div class="head-modal">
@@ -22,7 +25,7 @@ if (empty($_SESSION['USERLOGED'])) {
             <button type="button" class="btn btn-close" onclick="close_add_product()"></button>
         </div>
         <form method="post" action="" class="body-modal" id="form-add-product" enctype="multipart/form-data">
-            <div class="total-center">
+            <div class="total-center mb-2">
                 <label class="label-photo total-center" for="product-photo" id="label-photo-new-product"
                     style="background: rgb(0, 0, 0, 0.2) url(products/files/default.webp) center center / cover no-repeat;">
                     <i class="fi fi-tr-camera-viewfinder"></i>
@@ -60,6 +63,19 @@ if (empty($_SESSION['USERLOGED'])) {
     </div>
 </div>
 
-<div class="content-list" id="content-list"></div>
+
+<div class="fade-modal-system fullscreen total-center fixed-top" id="modal-edit-product">
+    <div class="modal-system-sm">
+        <div class="head-modal">
+            <span>Editar Producto</span>
+            <button type="button" class="btn btn-close" onclick="close_edit_product()"></button>
+        </div>
+        <form method="post" action="" class="body-modal" id="form-edit-product" enctype="multipart/form-data">
+            <div id="container-fields-edit-product">
+
+            </div>
+        </form>
+    </div>
+</div>
 
 <script src="products/script-products.js"></script>

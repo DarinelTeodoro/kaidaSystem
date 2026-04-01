@@ -149,7 +149,7 @@ if ($_POST['menu-request'] == 'add-product') {
     // Iniciar transacción
     $conexion = new Conexion();
     $conexion->beginTransaction();
-    $directorio_destino = "files/";
+    $directorio_destino = "products/files/";
 
     try {
         if ($_FILES['product-photo']['error'] === UPLOAD_ERR_OK) {
@@ -275,6 +275,7 @@ if ($_POST['menu-request'] == 'add-variant') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Variante Agregado';
         $response['bg'] = 'success';
+        $response['idprod'] = $id_product;
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción

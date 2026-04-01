@@ -120,6 +120,7 @@ if ($_POST['menu_request'] == 'delete-product') {
 
     try {
         $id = $_POST['id_product'];
+        $data_product = query_product($id);
 
         $delete = $conexion->prepare('DELETE FROM menu_productos WHERE id = :id');
         $delete->bindParam(':id', $id);
@@ -132,6 +133,7 @@ if ($_POST['menu_request'] == 'delete-product') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Producto Eliminado';
         $response['bg'] = 'success';
+        $response['idcat'] = $data_product['id_categoria'];
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción
@@ -154,6 +156,7 @@ if ($_POST['menu_request'] == 'delete-variant') {
 
     try {
         $id = $_POST['id_variant'];
+        $data_variant = query_variant($id);
 
         $delete = $conexion->prepare('DELETE FROM menu_variantes WHERE id = :id');
         $delete->bindParam(':id', $id);
@@ -166,6 +169,7 @@ if ($_POST['menu_request'] == 'delete-variant') {
         $response['alerta'] = 'Éxito';
         $response['message'] = 'Variante Eliminada';
         $response['bg'] = 'success';
+        $response['idprod'] = $data_variant['id_producto'];
 
     } catch (Exception $e) {
         // Si algo salió mal, revertimos la transacción
