@@ -76,12 +76,12 @@ $data_producto = query_product($_POST['id_product']);
             const reader = new FileReader();
             reader.onload = function (ev) {
                 cont_img_newuser.style.background =
-                    `rgb(0, 0, 0, 0) url(${ev.target.result}) center center / cover no-repeat`;
+                    `rgb(0, 0, 0, 0.2) url(${ev.target.result}) center center / cover no-repeat`;
             };
             reader.readAsDataURL(file);
         } else {
             cont_img_newuser.style.background =
-                `rgb(0, 0, 0, 0) url('products/files/<?= $data_producto['imagen'] ?>') center center / cover no-repeat`;
+                `rgb(0, 0, 0, 0.2) url('products/files/<?= $data_producto['imagen'] ?>') center center / cover no-repeat`;
         }
     }
 </script>

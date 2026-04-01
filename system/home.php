@@ -63,22 +63,22 @@ if (isset($_POST['destroy-session'])) {
             }
             if ($userloged['caja'] == 1) {
                 ?>
-                <a href="modules/caja/caja.php" class="option-menu total-center">Caja</a>
+                <a href="modules/checkout/checkout.php" class="option-menu total-center">Caja</a>
                 <?php
             }
             if ($userloged['comandas'] == 1) {
                 ?>
-                <a href="modules/comandas/comandas.php" class="option-menu total-center">Comandas</a>
+                <a href="modules/tickets/ticket.php" class="option-menu total-center">Comandas</a>
                 <?php
             }
             if ($userloged['ventas'] == 1) {
                 ?>
-                <a href="modules/ventas/ventas.php" class="option-menu total-center">Ventas</a>
+                <a href="modules/sales/sales.php" class="option-menu total-center">Ventas</a>
                 <?php
             }
             if ($userloged['usuarios'] == 1) {
                 ?>
-                <a href="modules/usuarios/usuarios.php" class="option-menu total-center">Usuarios</a>
+                <a href="modules/users/users.php" class="option-menu total-center">Usuarios</a>
                 <?php
             }
             ?>

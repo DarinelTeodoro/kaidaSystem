@@ -286,6 +286,10 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.field-modal:read-only {
+    background: rgb(0, 0, 0, 0.1);
+}
+
 .field-modal,
 textarea {
     width: 100%;

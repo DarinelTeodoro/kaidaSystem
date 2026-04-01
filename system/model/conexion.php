@@ -20,6 +20,21 @@ class Conexion extends PDO
 
 
 //----------------------------------------------------------------------- TABLA USUARIOS ---------------------------------------------------------
+function query_user_byId($user)
+{
+    $conexion = new Conexion();
+    $query = $conexion->prepare("SELECT * FROM usuarios WHERE id = :user AND status = 1");
+    $query->bindParam(':user', $user);
+    $query->execute();
+    $count = $query->rowCount();
+
+    if ($count == 1) {
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } else {
+        return false;
+    }
+}
+
 function query_user($user)
 {
     $conexion = new Conexion();
