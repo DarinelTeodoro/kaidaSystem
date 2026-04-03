@@ -17,3 +17,7 @@
 <!--Tom Select-->
 <!--<link href="https://cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/css/tom-select.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/js/tom-select.complete.min.js"></script>-->
+
+<!--Data Tables-->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>

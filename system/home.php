@@ -68,7 +68,7 @@ if (isset($_POST['destroy-session'])) {
             }
             if ($userloged['comandas'] == 1) {
                 ?>
-                <a href="modules/tickets/ticket.php" class="option-menu total-center">Comandas</a>
+                <a href="modules/tickets/tickets.php" class="option-menu total-center">Comandas</a>
                 <?php
             }
             if ($userloged['ventas'] == 1) {

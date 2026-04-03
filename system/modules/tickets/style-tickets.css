@@ -1,0 +1,307 @@
+body {
+    background: rgb(255, 255, 255, 0.5) url('../../../img/background/mostrador.webp') fixed no-repeat center center;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    padding: 0px 5px 0px 15px;
+    background: #ffffff;
+}
+
+.btn-home {
+    padding: 5px;
+
+    background: #ffffff;
+    color: #000000;
+    opacity: 0.7;
+
+    font-size: 2.3rem;
+    transition: 0.2s;
+}
+
+.btn-home:hover {
+    opacity: 0.9;
+}
+
+.container-main-menu {
+    padding: 80px 10px 10px;
+}
+
+.container-title-section {
+    padding: 0px 5px;
+    margin-top: 20px;
+}
+
+.title-section {
+    font-family: 'Buda';
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.container-filter-tickets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.option-filter {
+    background: rgb(255, 255, 255, 0.5);
+    border-radius: 0px;
+    border: 2px solid #ffffff;
+}
+
+.option-filter:hover {
+    background: rgb(255, 255, 255, 1);
+}
+
+.btn-floating {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+
+    text-decoration: none;
+    font-family: 'Patrick Hand SC';
+
+    border: 1px solid #000000;
+    border-radius: 35px;
+
+    background: #ffffff;
+    color: #000000;
+
+    cursor: pointer;
+    z-index: 100;
+    transition: 0.2s;
+}
+
+.btn-floating:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.btn-floating span {
+    font-size: 0.9rem;
+}
+
+.btn-floating i {
+    font-size: 1.7rem;
+}
+
+
+.container-not-found {
+    padding: 15px 10px;
+}
+
+.container-not-found i {
+    font-size: 4rem;
+}
+
+.text-not-found {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.3rem;
+}
+
+.container-not-charge {
+    padding: 15px 10px;
+    font-family: 'Patrick Hand SC';
+}
+
+.container-not-charge i {
+    font-size: 2rem;
+}
+
+.text-not-charge {
+    font-size: 1.3rem;
+}
+
+
+/*********************************/
+/*           COMANDAS            */
+/*********************************/
+.btn-back {
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+    font-family: 'Patrick Hand SC';
+    text-decoration: none;
+    color: #000000;
+
+    transition: 0.2s;
+}
+
+.btn-back i {
+    font-size: 1.8rem;
+}
+
+.btn-back span {
+    font-size: 1.2rem;
+}
+
+.btn-back:hover {
+    background: rgb(0, 0, 0, 0.6);
+    color: #ffffff;
+}
+
+
+
+.column-products {
+    height: auto;
+    width: calc(100% - 400px);
+    padding: 20px 15px 10px;
+}
+
+.separator-category {
+    padding: 15px;
+
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+
+    background: rgb(0, 0, 0, 0.6);
+}
+
+.carrousel-products {
+    width: 100%;
+    padding: 10px 0px;
+
+    display: flex;
+    gap: 10px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.card-product {
+    height: 150px;
+    width: 115px;
+    min-width: 115px;
+
+    display: grid;
+    grid-template-rows: 60px 90px;
+
+    background: #ffffff;
+
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.imagen-product {
+    background-blend-mode: darken;
+
+    border-radius: 10px 10px 0px 0px;
+}
+
+.info-product {
+    padding: 10px;
+
+    font-size: 1.1rem;
+    font-family: 'Patrick Hand SC';
+    font-weight: bold;
+}
+
+
+
+.offcanvas {
+    display: grid;
+    grid-template-rows: 50px 1fr 40px 38.8px;
+    z-index: 1030 !important;
+}
+
+.head-column-details {
+    padding: 0px 10px;
+
+    border-top: 2px solid rgb(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.2);
+
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.body-column-details {
+    padding: 10px;
+    height: 100%;
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.total-column-details {
+    padding: 0px 10px;
+
+    border-top: 2px solid rgb(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.2);
+
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.footer-column-details .btn-execute {
+    border-radius: 0px;
+    width: 100%;
+}
+
+
+.btn-car {
+    font-size: 1.4rem;
+
+    padding: 6px 5px;
+    margin-right: 10px;
+
+    border: 2px solid rgb(0, 0, 0, 0.4);
+}
+
+.btn-close {
+    display: none;
+}
+
+
+@media (width < 810px) {
+    .column-products {
+        width: 100%;
+    }
+
+    .btn-close {
+        display: flex;
+    }
+}
+
+
+#container-cost-delivery {
+    display: none;
+}
+
+/* Añade esto a tu style.css */
+.update-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.update-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
