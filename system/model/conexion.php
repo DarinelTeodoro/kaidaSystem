@@ -295,7 +295,7 @@ function query_variants($product)
     $query->execute();
     $count = $query->rowCount();
 
-    if ($count > 1) {
+    if ($count > 0) {
         return $query->fetchAll(PDO::FETCH_ASSOC);
     } else {
         return false;

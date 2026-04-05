@@ -28,7 +28,7 @@ if (empty($_SESSION['USERLOGED'])) {
             <i class="fi fi-tr-arrow-small-left"></i><span>Volver</span>
         </a>
 
-        <button type="button" class="btn-car" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+        <button type="button" class="btn-car" id="btn-car" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
             aria-controls="offcanvasScrolling"><i class="fi fi-tr-cart-arrow-down"></i></button>
     </div>
 
@@ -44,11 +44,11 @@ if (empty($_SESSION['USERLOGED'])) {
     </div>
 
     <!--Carrito comanda-->
-    <div class="offcanvas offcanvas-end show" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    <form method="post" action="" class="offcanvas offcanvas-end show" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="head-column-details align-between">
             <span>Productos de la Comanda</span>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-car" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
         <div class="body-column-details">
@@ -72,33 +72,72 @@ if (empty($_SESSION['USERLOGED'])) {
                     </div>
                 </div>
 
-                <div class=""></div>
-
+                <div id="productos-in-car">
+                    <div class="text-center p-3 text-muted">No hay productos en el carrito. <span class="alert-dismiss">Cierra el carrito para ver el catalogo de productos completo.</span></div>
+                </div>
             </div>
         </div>
 
         <div class="total-column-details align-between">
             <span>Total</span>
-            <span class="text-success">$0.00</span>
+            <span class="text-success" id="text-total-car">$0.00</span>
         </div>
 
         <div class="footer-column-details">
-            <button class="btn-execute" name="send-ticket" id="send-ticket">Enviar Comanda</button>
+            <button type="submit" class="btn-execute" name="send-ticket" id="send-ticket">Enviar Comanda</button>
+        </div>
+    </form>
+
+
+<!--Modal Armar Combo-->
+    <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-arm-combo">
+        <div class="modal-system-sm">
+            <div class="head-modal">
+                <span>Armar Combo</span>
+                <button type="button" class="btn btn-close" onclick="close_arm_combo()"></button>
+            </div>
+            <div class="body-modal" id="arm-combo">
+
+            </div>
         </div>
     </div>
 
-
-    <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-edit-user">
+    <!--Modal Seleccionar Variante de producto-->
+    <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-select-variant">
         <div class="modal-system-sm">
             <div class="head-modal">
-                <span>Editar Usuario</span>
-                <button type="button" class="btn btn-close" onclick="close_edit_user()"></button>
+                <span>Seleccionar Variante</span>
+                <button type="button" class="btn btn-close" onclick="close_select_variant()"></button>
             </div>
-            <form method="post" action="" class="body-modal" id="form-edit-user" enctype="multipart/form-data">
-                <div id="container-fields-edit-user">
+            <div class="body-modal" id="select-variant">
 
-                </div>
-            </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Select Exxtras-->
+    <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-select-extras">
+        <div class="modal-system-sm">
+            <div class="head-modal">
+                <span id="modal-extra-title">Agregar Extras</span>
+                <button type="button" class="btn btn-close" onclick="close_extras_modal()"></button>
+            </div>
+            <div class="body-modal pt-0" id="select-extras">
+
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Select Exxtras-->
+    <div class="fade-modal-system fullscreen total-center fixed-top" id="modal-edit-select-extras">
+        <div class="modal-system-sm">
+            <div class="head-modal">
+                <span id="modal-edit-extra-title">Editar Extras</span>
+                <button type="button" class="btn btn-close" onclick="close_edit_extras_modal()"></button>
+            </div>
+            <div class="body-modal pt-0" id="edit-select-extras">
+
+            </div>
         </div>
     </div>
 

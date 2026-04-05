@@ -24,7 +24,7 @@ if ($list_combos) {
     echo '<div class="carrousel-products">';
     foreach ($list_combos as $combo) {
         ?>
-        <div class="card-product" data-search="<?= $combo['combo'] ?> Combos" onclick="add_combo_car()">
+        <div class="card-product" data-search="<?= $combo['combo'] ?> Combos" onclick="open_arm_combo(<?= $combo['id'] ?>)">
             <div class="imagen-product"
                 style="background: rgb(0, 0, 0, 0.2) url('../menu/products/files/combo.webp ?>') center center / cover no-repeat;">
             </div>
@@ -58,8 +58,16 @@ if ($list_categorias) {
             <div class="carrousel-products">
                 <?php
                 foreach ($productos as $producto) {
+                    $array_variants = query_variants($producto['id']);
+
+                    if ($array_variants) {
+                        $onclick = 'open_select_variant('.$producto['id'].')';
+                    } else {
+                        //$onclick = 'product_to_car()';
+                        $onclick = 'product_to_car('.$producto['id'].',\''. addslashes($producto['producto']) .'\','. $producto['precio'] .')';
+                    }
                     ?>
-                    <div class="card-product" data-search="<?= $producto['producto'] . ' ' . $categoria['categoria'] ?>">
+                    <div class="card-product" data-search="<?= $producto['producto'] . ' ' . $categoria['categoria'] ?>" onclick="<?= $onclick ?>" <?= $producto['id'] ?>>
                         <div class="imagen-product"
                             style="background: rgb(0, 0, 0, 0.2) url('../menu/products/files/<?= $producto['imagen'] ?>') center center / cover no-repeat;">
                         </div>

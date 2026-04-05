@@ -197,6 +197,10 @@ if ($_POST['menu_request'] == 'delete-extra') {
         $delete->bindParam(':id', $id);
         $delete->execute();
 
+        $delete_variant = $conexion->prepare('DELETE FROM menu_variantes WHERE id_producto = :id');
+        $delete_variant->bindParam(':id', $id);
+        $delete_variant->execute();
+
         // Si todo salió bien, confirmamos la transacción
         $conexion->commit();
 

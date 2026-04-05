@@ -158,7 +158,7 @@ body {
 .column-products {
     height: auto;
     width: calc(100% - 400px);
-    padding: 20px 15px 10px;
+    padding: 90px 15px 10px;
 }
 
 .separator-category {
@@ -195,6 +195,9 @@ body {
 
     border: 2px solid #000000;
     border-radius: 10px;
+
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .imagen-product {
@@ -264,8 +267,13 @@ body {
     border: 2px solid rgb(0, 0, 0, 0.4);
 }
 
-.btn-close {
+.btn-close-car {
     display: none;
+}
+.alert-dismiss {
+    display: none;
+    font-style: italic;
+    color: #853bed;
 }
 
 
@@ -274,7 +282,11 @@ body {
         width: 100%;
     }
 
-    .btn-close {
+    .btn-close-car {
+        display: flex;
+    }
+
+    .alert-dismiss {
         display: flex;
     }
 }
@@ -284,24 +296,73 @@ body {
     display: none;
 }
 
-/* Añade esto a tu style.css */
-.update-notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 9999;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    pointer-events: none;
+.btn-add-car {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    background: #000000;
+    color: #ffffff;
 }
 
-.update-notification.show {
-    opacity: 1;
-    transform: translateY(0);
+.extras-total-display {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/***************************/
+/*      MODAL COMBOS       */
+/***************************/
+.title-combo-section {
+    height: auto;
+    padding: 5px 10px;
+
+    background: rgb(0, 0, 0, 0.8);
+
+    color: #ffffff;
+}.title-combo-section .title-section {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+}.title-combo-section .instruction-section {
+    font-family: 'Buda';
+}
+
+/***************************/
+/*     MODAL VARIANTES     */
+/***************************/
+.btn-select-variante {
+    width: 100%;
+    margin-bottom: 5px;
+    border: 2px solid rgb(0, 0, 0, 0.4);
+
+    transition: 0.2s;
+}.btn-select-variante:hover {
+    background: rgb(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+
+/***************************/
+/*      MODAL EXTRAS       */
+/***************************/
+.extra-item {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.bg-notas {
+    background: #f8e0b4;
+}
+
+
+
+/***************************/
+/*         CARRITO         */
+/***************************/
+.cart-item .title-item {
+    font-family: 'Patrick Hand SC';
+    font-size: 1.2rem;
+    font-weight: bold;
 }
