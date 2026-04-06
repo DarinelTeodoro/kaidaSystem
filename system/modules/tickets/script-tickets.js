@@ -4,6 +4,6 @@ let table = $('#table-tickets').DataTable({
         { data: 'id' },
         { data: 'cliente' },
         { data: 'estado' },
-        { data: 'mesero' }
+        { data: 'button' }
     ]
 });

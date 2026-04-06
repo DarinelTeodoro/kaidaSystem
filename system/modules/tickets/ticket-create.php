@@ -59,9 +59,9 @@ if (empty($_SESSION['USERLOGED'])) {
                     <option value="2">Para llevar</option>
                 </select>
 
-                <div align="justify"><label for="delivary-client">Cliente</label></div>
+                <div align="justify"><label for="delivery-client">Cliente</label></div>
                 <div class="mb-2">
-                    <input type="text" name="delivary-client" id="delivary-client" class="field-modal" required>
+                    <input type="text" name="delivery-client" id="delivery-client" class="field-modal" required>
                 </div>
 
                 <div id="container-cost-delivery">
@@ -151,6 +151,9 @@ if (empty($_SESSION['USERLOGED'])) {
                 <div class="mb-3"><span id="text-alert">Message Alert</span></div>
                 <div id="container-btn-acept">
                     <button type="button" class="btn-accept" onclick="hide_alert()">Aceptar</button>
+                </div>
+                <div id="container-btn-acept-aux" style="display: none;">
+                    <a href="tickets.php" class=" btn btn-secondary">Aceptar</a>
                 </div>
             </div>
         </div>

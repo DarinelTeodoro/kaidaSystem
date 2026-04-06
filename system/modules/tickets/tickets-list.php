@@ -1,6 +1,6 @@
 <?php
 include('../../model/conexion.php');
-header('Content-Type: application/json');
+
 
 try {
     $filter = 'all';
@@ -9,17 +9,21 @@ try {
 
     if ($tickets) {
         foreach ($tickets as $ticket) {
-            $column['id'] = $ticket['id'];
-            $column['tipo'] = $ticket['tipo'];
-            $column['cliente'] = $ticket['cliente'];
-            $column['estado'] = $ticket['estado'];
-            $column['creado'] = $ticket['creado'];
-            $column['actualizado'] = $ticket['actualizado'];
-            $column['finalizado'] = $ticket['finalizado'];
-            $column['costo_envio'] = $ticket['costo_envio'];
-            $column['motivo_cancelacion'] = $ticket['motivo_cancelacion'];
-            $column['mesero'] = $ticket['mesero'];
-            $data[] = $column;
+            $icon_estado = $ticket['estado'] == 1 ? '<div class="ps-2 pe-2 p-1 bg-warning rounded d-flex align-items-center"><i class="fi fi-tr-grill"></i><span class="ms-2" style="font-size: 0.8rem;">En Proceso</span></div>' : ($ticket['estado'] == 2 ? '<div class="ps-2 pe-2 p-1 bg-success text-light rounded d-flex align-items-center"><i class="fi fi-tr-holding-hand-dinner"></i><span class="ms-2" style="font-size: 0.8rem;">Preparado</span></div>' : '<div class="ps-2 pe-2 p-1 bg-danger text-light rounded d-flex align-items-center"><i class="fi fi-tr-octagon-xmark"></i><span class="ms-2" style="font-size: 0.8rem;">Cancelado</span></div>');
+            $btn_edit = $ticket['estado'] == 1 ? '<button type="button" class="btn-edit"><i class="fi fi-tr-pencil"></i></button>' : '';
+            $data[] = [
+                'id' => $ticket['id'],
+                'tipo' => $ticket['tipo'],
+                'cliente' => $ticket['cliente'],
+                'estado' => $icon_estado,
+                'creado' => $ticket['creado'],
+                'actualizado' => $ticket['actualizado'],
+                'finalizado' => $ticket['finalizado'],
+                'costo_envio' => $ticket['costo_envio'],
+                'motivo_cancelacion' => $ticket['motivo_cancelacion'],
+                'mesero' => $ticket['mesero'],
+                'button' => $btn_edit
+            ];
         }
     }
 

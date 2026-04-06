@@ -429,7 +429,7 @@ function query_all_comandas($results = 'all')
 
     try {
         $query = $conexion->prepare($sql);
-        $query->execute();
+        $query->execute([':fecha' => $fecha]);
 
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         return !empty($results) ? $results : false;

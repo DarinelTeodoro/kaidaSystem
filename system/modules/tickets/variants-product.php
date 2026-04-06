@@ -16,7 +16,7 @@ if ($variantes) {
     $precioFinal = $prodPrecio + $inc;
 ?>
 <div>
-  <button type="button" class="btn-select-variante" onclick="variant_to_car(<?= $producto_id ?>, '<?= addslashes($producto['producto']) ?>', <?= $varId ?>, '<?= addslashes($varName) ?>', <?= $precioFinal ?>)">
+  <button type="button" class="btn-select-variante" onclick="variant_to_car(<?= $producto_id ?>, '<?= addslashes($producto['producto']) ?>', <?= $varId ?>, '<?= addslashes($varName) ?>', <?= $precioFinal ?>, <?= $prodPrecio ?>, <?= $inc ?>)">
     <span><?= htmlspecialchars($varName) ?> (+$<?= number_format($inc, 2) ?>)</span>
   </button>
 </div>

@@ -9,6 +9,7 @@ body {
     width: 100%;
     padding: 0px 5px 0px 15px;
     background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .btn-home {
@@ -27,7 +28,7 @@ body {
 }
 
 .container-main-menu {
-    padding: 80px 10px 10px;
+    padding: 80px 10px 90px;
 }
 
 .container-title-section {
@@ -55,6 +56,11 @@ body {
 
 .option-filter:hover {
     background: rgb(255, 255, 255, 1);
+}
+
+.option-filter:disabled {
+    background: rgb(255, 255, 255, 1);
+    color: #000000;
 }
 
 .btn-floating {

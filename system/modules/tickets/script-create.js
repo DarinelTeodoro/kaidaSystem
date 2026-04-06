@@ -270,7 +270,7 @@ function combo_to_car() {
 }
 
 // Función para agregar variante al carrito
-function variant_to_car(productId, productName, variantId, variantName, variantPrice) {
+function variant_to_car(productId, productName, variantId, variantName, variantPrice, base, inc) {
     const producto = {
         id: productId,
         nombre: productName,
@@ -279,7 +279,9 @@ function variant_to_car(productId, productName, variantId, variantName, variantP
         tipo: 'variante',
         variante: {
             id: variantId,
-            nombre: variantName
+            nombre: variantName,
+            precio_producto: base,
+            incremento: inc
         },
         extras: [],
         comentarios: ''
@@ -578,12 +580,12 @@ function update_cart_display() {
                 <div class="align-between text-muted"><small class="text-danger">$${item.precio.toFixed(2)}</small><small>x</small><small class="text-primary">${item.cantidad}</small><small>=</small><small class="text-danger">$${subtotal.toFixed(2)}</small></div>
                 ${comentariosHtml}
                 <div class="align-between mt-2 mb-1">
-                    <button class="btn-edit" onclick="edit_cart_item(${index})">
+                    <button type="button" class="btn-edit" onclick="edit_cart_item(${index})">
                         <i class="fi fi-tr-pencil"></i>
                     </button>
-                    <button class="btn btn-add" onclick="update_quantity(${index}, -1)"><i class="bi bi-dash-lg"></i></button>
-                    <button class="btn btn-add" onclick="update_quantity(${index}, 1)"><i class="bi bi-plus-lg"></i></button>
-                    <button class="btn-delete" onclick="remove_from_cart(${index})">
+                    <button type="button" class="btn btn-add" onclick="update_quantity(${index}, -1)"><i class="bi bi-dash-lg"></i></button>
+                    <button type="button" class="btn btn-add" onclick="update_quantity(${index}, 1)"><i class="bi bi-plus-lg"></i></button>
+                    <button type="button" class="btn-delete" onclick="remove_from_cart(${index})">
                         <i class="fi fi-tr-x"></i>
                     </button>
                 </div>
@@ -861,7 +863,7 @@ $('#offcanvasScrolling').submit(function (event) {
     }
 
     const typeDelivery = document.getElementById('type-delivery')?.value;
-    const clientName = document.getElementById('delivary-client')?.value;
+    const clientName = document.getElementById('delivery-client')?.value;
     const deliveryPrice = parseFloat(document.getElementById('delivery-price')?.value || 0);
 
     if (!clientName) {
@@ -877,9 +879,19 @@ $('#offcanvasScrolling').submit(function (event) {
         total: calculate_total()
     };
 
+    let html = `
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    `;
+
     // Enviar al servidor
     $.ajax({
-        url: 'save-ticket.php',
+        url: 'send-ticket.php',
         type: 'POST',
         data: JSON.stringify(ticketData),
         contentType: 'application/json',
@@ -887,12 +899,15 @@ $('#offcanvasScrolling').submit(function (event) {
         beforeSend: function () {
             document.getElementById("view-preloader").classList.add('object-visible');
             document.getElementById('send-ticket').disable = true;
+
+            show_alert('default', 'Esperando Respuesta', html, false);
         },
         success: function (response) {
             document.getElementById("view-preloader").classList.remove('object-visible');
             document.getElementById('send-ticket').disable = false;
             if (response.success) {
-                show_alert('success', 'Comanda Enviada', 'La comanda ha sido enviada', true);
+                show_alert('success', 'Comanda Enviada', 'La comanda ha sido enviada', false);
+                document.getElementById('container-btn-acept-aux').style.display = 'flex';
                 // Limpiar carrito después de enviar
                 carritoItems = [];
                 update_cart_display();

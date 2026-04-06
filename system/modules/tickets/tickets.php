@@ -43,9 +43,9 @@ if (empty($_SESSION['USERLOGED'])) {
         <div class="line"></div>
 
         <div class="container-filter-tickets">
-            <button class="option-filter">Pendientes</button>
-            <button class="option-filter">Finalizados</button>
-            <button class="option-filter">Todas</button>
+            <button type="button" class="option-filter" disabled>Pendientes</button>
+            <button type="button" class="option-filter">Finalizados</button>
+            <button type="button" class="option-filter">Todas</button>
         </div>
 
         <div id="container-tickets-list">
